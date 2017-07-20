@@ -2,11 +2,13 @@ package godbf
 
 import (
 	"errors"
+	"os"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/axgle/mahonia"
+	"github.com/edsrzf/mmap-go"
 )
 
 type DbfField struct {
@@ -55,7 +57,9 @@ type DbfTable struct {
 	encoder      mahonia.Encoder
 
 	// keeps the dbase table in memory as byte array
-	dataStore []byte
+	dataStore   []byte
+	fileHandler *os.File
+	mmapHandler *mmap.MMap
 }
 
 // Sets field value by index

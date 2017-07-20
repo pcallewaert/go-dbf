@@ -3,7 +3,6 @@ package godbf
 import (
 	"io"
 	"os"
-	//"fmt"
 )
 
 // append data[]byte to slice and returns the new byte slice
